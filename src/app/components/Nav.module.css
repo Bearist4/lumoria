@@ -30,7 +30,11 @@
   text-decoration: none;
 }
 .logoImage {
+<<<<<<< HEAD
   height: 4rem;
+=======
+  height: 1.75rem;
+>>>>>>> 51521c15 (feat: enhance layout and styling across the application)
   width: auto;
   display: block;
 }

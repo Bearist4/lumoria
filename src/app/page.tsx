@@ -6,9 +6,12 @@ import { Nav } from '@/app/components/Nav'
 import { FaqAccordion } from '@/app/components/FaqAccordion'
 import { BetaCtaSection } from '@/app/components/BetaCtaSection'
 import { TicketMarquee } from '@/app/components/TicketMarquee'
+<<<<<<< HEAD
 import { Footer } from '@/app/components/Footer'
 import { FeatureCard } from '@/app/components/FeatureCard'
 import { StatCard } from '@/app/components/StatCard'
+=======
+>>>>>>> 51521c15 (feat: enhance layout and styling across the application)
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -119,7 +122,14 @@ export default function HomePage() {
 
           <div className={styles.statsGrid}>
             {STATS.map((s) => (
+<<<<<<< HEAD
               <StatCard key={s.pct} pct={s.pct} desc={s.desc} />
+=======
+              <div key={s.pct} className={styles.statCard}>
+                <p className={styles.statPct}>{s.pct}</p>
+                <p className={styles.statDesc}>{s.desc}</p>
+              </div>
+>>>>>>> 51521c15 (feat: enhance layout and styling across the application)
             ))}
           </div>
         </div>
@@ -142,7 +152,25 @@ export default function HomePage() {
 
           <div className={styles.featuresGrid}>
             {FEATURES.map((f) => (
+<<<<<<< HEAD
               <FeatureCard key={f.title} image={f.image} title={f.title} body={f.body} />
+=======
+              <div key={f.title} className={styles.featureCard}>
+                <div className={styles.featureImageWrap}>
+                  <Image
+                    src={f.image}
+                    alt={f.title}
+                    width={490}
+                    height={1000}
+                    className={styles.featureImage}
+                  />
+                </div>
+                <div className={styles.featureText}>
+                  <h3 className={styles.featureTitle}>{f.title}</h3>
+                  <p className={styles.featureBody}>{f.body}</p>
+                </div>
+              </div>
+>>>>>>> 51521c15 (feat: enhance layout and styling across the application)
             ))}
           </div>
         </div>
@@ -167,7 +195,19 @@ export default function HomePage() {
       <BetaCtaSection />
 
       {/* ── Footer ────────────────────────────────────────────────── */}
+<<<<<<< HEAD
       <Footer />
+=======
+      <footer className={styles.footer}>
+        <span className={styles.footerBrand}>Lumoria</span>
+        <div className={styles.footerLinks}>
+          <Link href="/privacy" className={styles.footerLink}>Privacy</Link>
+          <span className={styles.footerLinkStatic}>Terms</span>
+          <a href="mailto:hello@lumoria.com" className={styles.footerLink}>Contact</a>
+        </div>
+        <p className={styles.footerCopy}>© 2026 Lumoria. Tickets that last forever.</p>
+      </footer>
+>>>>>>> 51521c15 (feat: enhance layout and styling across the application)
     </>
   )
 }

@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+<<<<<<< HEAD
 import { Nav } from '@/app/components/Nav'
 import { Footer } from '@/app/components/Footer'
+=======
+>>>>>>> 51521c15 (feat: enhance layout and styling across the application)
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -11,6 +14,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
+<<<<<<< HEAD
     <>
       <Nav />
       <main className={styles.main}>
@@ -25,6 +29,20 @@ export default function PrivacyPage() {
 
         <section className={styles.content}>
 
+=======
+    <main className={styles.main}>
+      <div className={styles.container}>
+
+        <Link href="/" className={styles.brandLink}>Lumoria</Link>
+
+        <div className={styles.titleWrap}>
+          <h1 className={styles.title}>Privacy Policy</h1>
+          <p className={styles.effective}>Effective: April 13, 2026</p>
+        </div>
+
+        <div className={styles.content}>
+
+>>>>>>> 51521c15 (feat: enhance layout and styling across the application)
           <section className={styles.section}>
             <h2 className={styles.sectionHeading}>What we collect</h2>
             <p>
