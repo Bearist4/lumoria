@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import styles from './TicketMarquee.module.css'
 
 // Ticket metadata: [filename, width, height]
 const TICKETS: [string, number, number][] = [
@@ -17,7 +18,7 @@ const TICKETS: [string, number, number][] = [
 
 // All tickets share the same long-side display length so portrait and
 // landscape tickets feel the same visual size — just oriented differently.
-const DISPLAY_LONG_SIDE = 300
+const DISPLAY_LONG_SIDE = 470
 
 export function TicketMarquee() {
   const items = [
@@ -29,49 +30,28 @@ export function TicketMarquee() {
   const stripHeight = DISPLAY_LONG_SIDE
 
   return (
-    <div className="relative w-full overflow-hidden" style={{ height: stripHeight }}>
-      {/* Fade edges */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-0 w-32 z-10"
-        style={{ background: 'linear-gradient(to right, white, transparent)' }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 w-32 z-10"
-        style={{ background: 'linear-gradient(to left, white, transparent)' }}
-      />
+    <div className={styles.wrapper} style={{ height: stripHeight }}>
 
-      <div
-        className="flex items-center gap-4 w-max h-full"
-        style={{ animation: 'marquee-left 36s linear infinite' }}
-      >
+      <div className={styles.strip}>
         {items.map(({ ticket: [name, w, h], key }) => {
           const longSide = Math.max(w, h)
           const scale = DISPLAY_LONG_SIDE / longSide
           const displayW = Math.round(w * scale)
           const displayH = Math.round(h * scale)
           return (
-            <div key={key} className="shrink-0" style={{ width: displayW, height: displayH }}>
+            <div key={key} className={styles.ticket} style={{ width: displayW, height: displayH }}>
               <Image
                 src={`/assets/tickets/${encodeURIComponent(name)}`}
                 alt="Sample Lumoria ticket"
                 width={w}
                 height={h}
-                className="w-full h-full object-cover"
+                className={styles.ticketImage}
                 draggable={false}
               />
             </div>
           )
         })}
       </div>
-
-      <style>{`
-        @keyframes marquee-left {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
-        }
-      `}</style>
     </div>
   )
 }

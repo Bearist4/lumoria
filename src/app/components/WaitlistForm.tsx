@@ -5,6 +5,7 @@ import { subscribeAction } from '@/app/actions/subscribe'
 import { SubmitButton } from './SubmitButton'
 import type { SubscribeState } from '@/lib/schemas'
 import * as amplitude from '@amplitude/analytics-browser'
+import styles from './WaitlistForm.module.css'
 
 const initialState: SubscribeState = {
   status: 'idle',
@@ -28,19 +29,9 @@ export function WaitlistForm() {
   }, [state.status, state.message])
 
   return (
-    <form action={formAction} noValidate className="w-full">
+    <form action={formAction} noValidate className={styles.form}>
       {/* Honeypot — visually off-screen; NOT display:none (bots detect that) */}
-      <label
-        htmlFor="website"
-        style={{
-          position: 'absolute',
-          left: '-9999px',
-          width: '1px',
-          height: '1px',
-          overflow: 'hidden',
-        }}
-        aria-hidden="true"
-      >
+      <label htmlFor="website" className="honeypot" aria-hidden="true">
         Website
       </label>
       <input
@@ -49,18 +40,12 @@ export function WaitlistForm() {
         type="text"
         tabIndex={-1}
         autoComplete="off"
-        style={{
-          position: 'absolute',
-          left: '-9999px',
-          width: '1px',
-          height: '1px',
-          overflow: 'hidden',
-        }}
+        className="honeypot"
         aria-hidden="true"
       />
 
-      <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
-        <div className="flex-1">
+      <div className={styles.fieldset}>
+        <div className={styles.fieldWrap}>
           <label htmlFor="email" className="sr-only">
             Email address
           </label>
@@ -71,18 +56,12 @@ export function WaitlistForm() {
             autoComplete="email"
             required
             placeholder="your@email.com"
-            className="w-full h-12 px-4 rounded-2xl border border-black/20 bg-white text-base text-black placeholder:text-[#a3a3a3] focus:outline-none focus:border-black transition-colors"
-            aria-describedby={
-              state.fieldErrors?.email ? 'email-error' : undefined
-            }
+            className={styles.input}
+            aria-describedby={state.fieldErrors?.email ? 'email-error' : undefined}
             aria-invalid={state.fieldErrors?.email ? 'true' : undefined}
           />
           {state.fieldErrors?.email && (
-            <p
-              id="email-error"
-              role="alert"
-              className="mt-2 text-sm text-red-600"
-            >
+            <p id="email-error" role="alert" className={styles.fieldError}>
               {state.fieldErrors.email[0]}
             </p>
           )}
@@ -96,8 +75,8 @@ export function WaitlistForm() {
         <p
           role="status"
           aria-live="polite"
-          className={`mt-3 text-sm ${
-            state.status === 'duplicate' ? 'text-[#737373]' : 'text-red-600'
+          className={`${styles.statusMsg} ${
+            state.status === 'duplicate' ? styles.statusDuplicate : styles.statusError
           }`}
         >
           {state.message}

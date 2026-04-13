@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { EB_Garamond } from 'next/font/google'
+import { EB_Garamond, Inter } from 'next/font/google'
 import { AmplitudeProvider } from '@/app/components/AmplitudeProvider'
 import './globals.css'
 
@@ -7,6 +7,12 @@ const ebGaramond = EB_Garamond({
   subsets: ['latin'],
   weight: ['600'],
   variable: '--font-display',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-body',
   display: 'swap',
 })
 
@@ -28,8 +34,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${ebGaramond.variable} h-full antialiased`}>
-      <body className="min-h-full bg-white text-black font-sans">
+    <html lang="en" className={`${ebGaramond.variable} ${inter.variable}`}>
+      <body>
         <AmplitudeProvider>{children}</AmplitudeProvider>
       </body>
     </html>

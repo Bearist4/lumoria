@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import styles from './FaqAccordion.module.css'
 
 const FAQ_ITEMS = [
   {
@@ -29,34 +30,23 @@ export function FaqAccordion() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <div className="w-full max-w-2xl">
+    <div className={styles.list}>
       {FAQ_ITEMS.map((item, i) => (
-        <div
-          key={i}
-          className="border-t border-black/5"
-        >
+        <div key={i} className={styles.item}>
           <button
             onClick={() => setOpen(open === i ? null : i)}
-            className="w-full flex items-start justify-between gap-6 py-6 text-left"
+            className={styles.trigger}
           >
-            <span className="text-[18px] font-semibold text-black leading-snug">
-              {item.q}
-            </span>
-            <span className="shrink-0 mt-1 relative size-4">
-              <span className="absolute inset-y-[7px] left-0 right-0 h-[1.5px] bg-black" />
+            <span className={styles.question}>{item.q}</span>
+            <span className={styles.icon}>
+              <span className={styles.iconBar} />
               <span
-                className={`absolute inset-x-[7px] top-0 bottom-0 w-[1.5px] bg-black transition-all duration-200 ${
-                  open === i ? 'opacity-0 rotate-90' : 'opacity-100'
-                }`}
+                className={`${styles.iconCross} ${open === i ? styles.iconCrossOpen : ''}`}
               />
             </span>
           </button>
-          <div
-            className={`overflow-hidden transition-all duration-200 ${
-              open === i ? 'max-h-48 pb-6' : 'max-h-0'
-            }`}
-          >
-            <p className="text-[16px] leading-relaxed text-[#6b7380]">{item.a}</p>
+          <div className={`${styles.panel} ${open === i ? styles.panelOpen : styles.panelClosed}`}>
+            <p className={styles.answer}>{item.a}</p>
           </div>
         </div>
       ))}

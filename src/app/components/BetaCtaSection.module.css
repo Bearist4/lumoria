@@ -1,0 +1,137 @@
+.section {
+  background-color: #000;
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container {
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.badgeText {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+@media (min-width: 640px) {
+  .headline {
+    font-size: 4rem;
+  }
+}
+
+.subtext {
+  font-size: 17px;
+  line-height: 1.625;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form {
+  width: 100%;
+  max-width: 28rem;
+}
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .fieldset {
+    flex-direction: row;
+  }
+}
+.fieldWrap {
+  flex: 1;
+}
+.input {
+  width: 100%;
+  height: 52px;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 15px;
+  color: #fff;
+  outline: none;
+  transition: border-color 200ms;
+}
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+.input:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.fieldError {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #f87171;
+}
+
+.submitButton {
+  height: 52px;
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: #fff;
+  color: #000;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 200ms;
+}
+.submitButton:hover {
+  opacity: 0.9;
+}
+.submitButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.submitButton:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.statusMsg {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+}
+.statusDuplicate {
+  color: rgba(255, 255, 255, 0.5);
+}
+.statusError {
+  color: #f87171;
+}
