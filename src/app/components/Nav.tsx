@@ -20,7 +20,7 @@ export function Nav() {
         {/* Logo */}
         <Link href="/" className={styles.logo}>
           <Image
-            src="/assets/Logo.png"
+            src="/assets/logo.svg"
             alt="Lumoria"
             width={262}
             height={100}
