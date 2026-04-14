@@ -1,15 +1,9 @@
-import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Nav } from '@/app/components/Nav'
 import { Footer } from '@/app/components/Footer'
 import { FeatureCard } from '@/app/components/FeatureCard'
 import styles from './page.module.css'
-
-export const metadata: Metadata = {
-  title: 'Features — Lumoria',
-  description: 'Discover how Lumoria transforms your tickets into beautiful, organized memories.',
-}
 
 const FEATURES = [
   {

@@ -1,13 +1,7 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Nav } from '@/app/components/Nav'
 import { Footer } from '@/app/components/Footer'
 import styles from './page.module.css'
-
-export const metadata: Metadata = {
-  title: 'Terms & Conditions',
-  description: 'Terms and conditions for using Lumoria.',
-}
 
 export default function TermsPage() {
   return (
