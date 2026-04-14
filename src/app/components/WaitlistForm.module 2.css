@@ -1,0 +1,56 @@
+
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 28rem;
+}
+@media (min-width: 640px) {
+  .fieldset {
+    flex-direction: row;
+  }
+}
+
+.fieldWrap {
+  flex: 1;
+}
+
+.input {
+  min-width: 300px;
+  width: 100%;
+  height: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #fff;
+  font-size: 1rem;
+  color: #000;
+  outline: none;
+  transition: border-color 200ms;
+}
+.input::placeholder {
+  color: #a3a3a3;
+}
+.input:focus {
+  border-color: #000;
+}
+
+.fieldError {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #dc2626;
+}
+
+.statusMsg {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+}
+.statusDuplicate {
+  color: #737373;
+}
+.statusError {
+  color: #dc2626;
+}
