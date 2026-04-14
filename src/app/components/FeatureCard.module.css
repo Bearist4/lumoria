@@ -1,0 +1,45 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: #fafafa;
+  overflow: hidden;
+}
+
+.imageWrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-top: 2.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  background: linear-gradient(to bottom, #f0f0f0, #fafafa);
+  min-height: 300px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.07)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.06));
+}
+
+.text {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.375;
+}
+
+.body {
+  font-size: 15px;
+  line-height: 1.625;
+  color: #737373;
+}

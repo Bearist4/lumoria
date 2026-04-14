@@ -13,6 +13,8 @@ export type Database = {
           ip_hash: string | null
           user_agent: string | null
           referrer: string | null
+          supabase_user_id: string | null
+          linked_at: string | null
         }
         Insert: {
           email: string
@@ -25,6 +27,8 @@ export type Database = {
           ip_hash?: string | null
           user_agent?: string | null
           referrer?: string | null
+          supabase_user_id?: string | null
+          linked_at?: string | null
         }
         Relationships: []
       }

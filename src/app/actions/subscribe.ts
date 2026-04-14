@@ -153,12 +153,17 @@ function buildEmailHtml(): string {
             <td style="padding-bottom:40px;">
               <p style="margin:0 0 16px;font-family:Georgia,serif;font-size:17px;
                         line-height:1.65;color:#404040;">
-                You're now on the Lumoria waitlist. We're building something
+                You're now on the Lumoria beta list. We're building something
                 that makes tickets worth keeping — not just scanning.
+              </p>
+              <p style="margin:0 0 16px;font-family:Georgia,serif;font-size:17px;
+                        line-height:1.65;color:#404040;">
+                When the beta is ready, we'll send you a download link.
+                Sign up in the app using this exact email address — that's how
+                we'll recognize you as a beta subscriber.
               </p>
               <p style="margin:0;font-family:Georgia,serif;font-size:17px;
                         line-height:1.65;color:#404040;">
-                When we're ready, you'll be among the first to know.
                 Until then, this is the only email you'll receive from us.
               </p>
             </td>

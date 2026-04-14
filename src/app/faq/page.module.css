@@ -1,0 +1,171 @@
+/* ── Header ────────────────────────────────────────────────── */
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 5rem);
+}
+
+.header {
+  background: #fff;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.headerContent {
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.backLink {
+  font-size: 0.875rem;
+  color: #737373;
+  text-decoration: none;
+  transition: color 200ms;
+  width: fit-content;
+}
+
+.backLink:hover {
+  color: #000;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 58px;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 640px) {
+  .title { font-size: 72px; }
+}
+
+.subtitle {
+  font-size: 17px;
+  line-height: 1.625;
+  color: #737373;
+  max-width: 36rem;
+}
+
+/* ── Content ───────────────────────────────────────────────── */
+.content {
+  flex: 1;
+  background: #fafafa;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.faqList {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Accordion ─────────────────────────────────────────────── */
+.item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.item:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  text-align: left;
+}
+
+.trigger:hover .question {
+  color: #000;
+}
+
+.question {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #404040;
+  transition: color 200ms;
+  flex: 1;
+}
+
+.icon {
+  flex-shrink: 0;
+  margin-left: 1rem;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.iconBar {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2px;
+  height: 20px;
+  left: 9px;
+  background: #404040;
+  transition: background 200ms;
+}
+
+.iconCross {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 2px;
+  background: #404040;
+  transition: transform 200ms;
+  transform: rotate(0deg);
+}
+
+.iconCrossOpen {
+  transform: rotate(90deg);
+}
+
+.panel {
+  overflow: hidden;
+  transition: all 200ms ease-out;
+}
+
+.panelOpen {
+  max-height: 500px;
+  opacity: 1;
+  padding-bottom: 1.5rem;
+}
+
+.panelClosed {
+  max-height: 0;
+  opacity: 0;
+  padding-bottom: 0;
+}
+
+.answer {
+  font-size: 0.95rem;
+  line-height: 1.625;
+  color: #737373;
+}
+

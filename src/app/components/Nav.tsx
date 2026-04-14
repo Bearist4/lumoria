@@ -31,9 +31,9 @@ export function Nav() {
 
         {/* Centre links */}
         <div className={styles.links}>
-          <a href="#home" className={styles.link}>Home</a>
-          <a href="#features" className={styles.link}>Features</a>
-          <a href="#faq" className={styles.link}>FAQ</a>
+          <Link href="/" className={styles.link}>Home</Link>
+          <Link href="/features" className={styles.link}>Features</Link>
+          <Link href="/faq" className={styles.link}>FAQ</Link>
         </div>
 
         {/* CTA */}

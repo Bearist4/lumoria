@@ -6,6 +6,9 @@ import { Nav } from '@/app/components/Nav'
 import { FaqAccordion } from '@/app/components/FaqAccordion'
 import { BetaCtaSection } from '@/app/components/BetaCtaSection'
 import { TicketMarquee } from '@/app/components/TicketMarquee'
+import { Footer } from '@/app/components/Footer'
+import { FeatureCard } from '@/app/components/FeatureCard'
+import { StatCard } from '@/app/components/StatCard'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -24,17 +27,17 @@ export const metadata: Metadata = {
 
 const FEATURES = [
   {
-    image: '/assets/iphone-blue.png',
+    image: '/assets/Tickets.png',
     title: 'Beautiful by default.',
     body: 'Every ticket is designed the moment you create it. Polished, expressive, and ready to save — no editing required.',
   },
   {
-    image: '/assets/iphone-silver.png',
+    image: '/assets/Organized.png',
     title: 'Everything in its place.',
     body: 'Your memories are organised by trip, not scattered in a camera roll. Find every ticket the way you remember it.',
   },
   {
-    image: '/assets/iphone-orange.png',
+    image: '/assets/Shared.png',
     title: 'Ready to share.',
     body: 'Export to your story, save to your camera roll, or send to a friend. Your ticket looks as good out there as it does inside.',
   },
@@ -116,10 +119,7 @@ export default function HomePage() {
 
           <div className={styles.statsGrid}>
             {STATS.map((s) => (
-              <div key={s.pct} className={styles.statCard}>
-                <p className={styles.statPct}>{s.pct}</p>
-                <p className={styles.statDesc}>{s.desc}</p>
-              </div>
+              <StatCard key={s.pct} pct={s.pct} desc={s.desc} />
             ))}
           </div>
         </div>
@@ -142,21 +142,7 @@ export default function HomePage() {
 
           <div className={styles.featuresGrid}>
             {FEATURES.map((f) => (
-              <div key={f.title} className={styles.featureCard}>
-                <div className={styles.featureImageWrap}>
-                  <Image
-                    src={f.image}
-                    alt={f.title}
-                    width={490}
-                    height={1000}
-                    className={styles.featureImage}
-                  />
-                </div>
-                <div className={styles.featureText}>
-                  <h3 className={styles.featureTitle}>{f.title}</h3>
-                  <p className={styles.featureBody}>{f.body}</p>
-                </div>
-              </div>
+              <FeatureCard key={f.title} image={f.image} title={f.title} body={f.body} />
             ))}
           </div>
         </div>
@@ -181,15 +167,7 @@ export default function HomePage() {
       <BetaCtaSection />
 
       {/* ── Footer ────────────────────────────────────────────────── */}
-      <footer className={styles.footer}>
-        <span className={styles.footerBrand}>Lumoria</span>
-        <div className={styles.footerLinks}>
-          <Link href="/privacy" className={styles.footerLink}>Privacy</Link>
-          <span className={styles.footerLinkStatic}>Terms</span>
-          <a href="mailto:hello@lumoria.com" className={styles.footerLink}>Contact</a>
-        </div>
-        <p className={styles.footerCopy}>© 2026 Lumoria. Tickets that last forever.</p>
-      </footer>
+      <Footer />
     </>
   )
 }
