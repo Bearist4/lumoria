@@ -1,12 +1,8 @@
 .wrapper {
   position: relative;
   width: 100%;
-<<<<<<< HEAD
   overflow: visible;
   z-index: 10;
-=======
-  overflow: hidden;
->>>>>>> 51521c15 (feat: enhance layout and styling across the application)
 }
 
 
