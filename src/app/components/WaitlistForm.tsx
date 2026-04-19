@@ -12,7 +12,7 @@ const initialState: SubscribeState = {
   message: '',
 }
 
-export function WaitlistForm() {
+export function WaitlistForm({ inviteToken }: { inviteToken?: string }) {
   const [state, formAction] = useActionState(subscribeAction, initialState)
 
   useEffect(() => {
@@ -43,6 +43,10 @@ export function WaitlistForm() {
         className="honeypot"
         aria-hidden="true"
       />
+
+      {inviteToken && (
+        <input type="hidden" name="invite_token" value={inviteToken} />
+      )}
 
       <div className={styles.fieldset}>
         <div className={styles.fieldWrap}>

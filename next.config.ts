@@ -21,6 +21,14 @@ const cspHeader = [
 ].join('; ')
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: '/.well-known/apple-app-site-association',
+        destination: '/api/aasa',
+      },
+    ]
+  },
   async headers() {
     return [
       {

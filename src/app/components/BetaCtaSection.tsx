@@ -23,7 +23,7 @@ function DarkSubmitButton() {
   )
 }
 
-export function BetaCtaSection() {
+export function BetaCtaSection({ inviteToken }: { inviteToken?: string }) {
   const [state, formAction] = useActionState(subscribeAction, initialState)
 
   useEffect(() => {
@@ -68,6 +68,10 @@ export function BetaCtaSection() {
             className="honeypot"
             aria-hidden="true"
           />
+
+          {inviteToken && (
+            <input type="hidden" name="invite_token" value={inviteToken} />
+          )}
 
           <div className={styles.fieldset}>
             <div className={styles.fieldWrap}>

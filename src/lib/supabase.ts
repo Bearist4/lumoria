@@ -15,12 +15,14 @@ export type Database = {
           referrer: string | null
           supabase_user_id: string | null
           linked_at: string | null
+          invite_token: string | null
         }
         Insert: {
           email: string
           ip_hash?: string | null
           user_agent?: string | null
           referrer?: string | null
+          invite_token?: string | null
         }
         Update: {
           email?: string
@@ -29,6 +31,7 @@ export type Database = {
           referrer?: string | null
           supabase_user_id?: string | null
           linked_at?: string | null
+          invite_token?: string | null
         }
         Relationships: []
       }

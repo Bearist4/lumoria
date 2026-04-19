@@ -23,6 +23,7 @@ export async function subscribeAction(
   const parsed = subscribeSchema.safeParse({
     email: formData.get('email'),
     website: formData.get('website'),
+    invite_token: formData.get('invite_token'),
   })
 
   if (!parsed.success) {
@@ -33,7 +34,7 @@ export async function subscribeAction(
     }
   }
 
-  const { email } = parsed.data
+  const { email, invite_token } = parsed.data
 
   // Step 3 — Email-based rate limit (fail open: if Redis is unavailable, allow through)
   try {
@@ -70,7 +71,13 @@ export async function subscribeAction(
   try {
     const { error: dbError } = await getSupabaseClient()
       .from('waitlist_subscribers')
-      .insert({ email, ip_hash: ipHash, user_agent: userAgent, referrer })
+      .insert({
+        email,
+        ip_hash: ipHash,
+        user_agent: userAgent,
+        referrer,
+        invite_token: invite_token ?? null,
+      })
 
     if (dbError) {
       if (dbError.code === '23505') {

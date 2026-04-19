@@ -9,6 +9,7 @@ import { TicketMarquee } from '@/app/components/TicketMarquee'
 import { Footer } from '@/app/components/Footer'
 import { FeatureCard } from '@/app/components/FeatureCard'
 import { StatCard } from '@/app/components/StatCard'
+import { isValidInviteToken } from '@/lib/invite'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -58,7 +59,16 @@ const STATS = [
   },
 ]
 
-export default function HomePage() {
+type HomePageProps = {
+  searchParams: Promise<{ invite?: string | string[] }>
+}
+
+export default async function HomePage({ searchParams }: HomePageProps) {
+  const { invite } = await searchParams
+  const raw = Array.isArray(invite) ? invite[0] : invite
+  const inviteToken =
+    raw && isValidInviteToken(raw) ? raw.toUpperCase() : undefined
+
   return (
     <>
       <Nav />
@@ -86,7 +96,7 @@ export default function HomePage() {
 
           {/* Hero form */}
           <div className={styles.heroFormWrap}>
-            <WaitlistForm />
+            <WaitlistForm inviteToken={inviteToken} />
           </div>
 
           <p className={styles.heroPrivacy}>
@@ -164,7 +174,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Beta CTA (client component — contains form) ───────────── */}
-      <BetaCtaSection />
+      <BetaCtaSection inviteToken={inviteToken} />
 
       {/* ── Footer ────────────────────────────────────────────────── */}
       <Footer />
