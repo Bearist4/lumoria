@@ -1,12 +1,11 @@
-const TEAM_ID = process.env.APPLE_TEAM_ID ?? 'UV5KDNCKWS'
-const BUNDLE_ID = process.env.IOS_BUNDLE_ID ?? 'bearista.Lumoria-App'
+import { NextResponse } from 'next/server';
 
-const body = JSON.stringify({
+const aasa = {
   applinks: {
     apps: [],
     details: [
       {
-        appIDs: [`${TEAM_ID}.${BUNDLE_ID}`],
+        appIDs: ['UV5KDNCKWS.bearista.Lumoria-App'],
         components: [
           { '/': '/import/pkpass' },
           { '/': '/auth/*' },
@@ -15,14 +14,13 @@ const body = JSON.stringify({
       },
     ],
   },
-})
+};
 
 export async function GET() {
-  return new Response(body, {
-    status: 200,
+  return NextResponse.json(aasa, {
     headers: {
       'Content-Type': 'application/json',
-      'Cache-Control': 'public, max-age=3600',
+      'Cache-Control': 'no-cache',
     },
-  })
+  });
 }
